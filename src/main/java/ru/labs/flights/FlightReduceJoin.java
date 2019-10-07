@@ -32,6 +32,7 @@ public class FlightReduceJoin extends Reducer<ReduceSideJoinKey, Text, Text, Tex
 
         if (delayCount != 0) {
             context.write(airportName, new Text((summaryDelay / delayCount)+","+maxDelay+","+minDelay));
+            //context.write(airportName, new Text((summaryDelay / delayCount)+","+maxDelay+","+minDelay));
         }
     }
 }
