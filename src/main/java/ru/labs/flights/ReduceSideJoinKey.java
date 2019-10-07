@@ -1,6 +1,7 @@
 package ru.labs.flights;
 
 import org.apache.hadoop.io.Writable;
+import org.apache.hadoop.mapreduce.Partitioner;
 
 import java.io.DataInput;
 import java.io.DataOutput;
@@ -32,4 +33,6 @@ public class ReduceSideJoinKey implements Writable {
         k.readFields(in);
         return k;
     }
+
+    public static class partitioner extends Partitioner<>
 }
