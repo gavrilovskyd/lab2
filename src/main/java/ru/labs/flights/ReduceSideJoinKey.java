@@ -40,9 +40,6 @@ public class ReduceSideJoinKey implements WritableComparable<ReduceSideJoinKey> 
 
     public int compareTo(ReduceSideJoinKey k) {
         int keyResult = joinKey.compareTo(k.joinKey);
-        if (joinKey.toString().equals("11540") || k.joinKey.toString().equals("11540")) {
-            System.out.println(joinKey + "compare" + k.joinKey + "res=" + keyResult+"dop key="+(isUnique - k.isUnique));
-        }
         return (keyResult == 0 ? (isUnique - k.isUnique) : keyResult);
     }
 
