@@ -19,6 +19,6 @@ public class AirportMapper extends Mapper<LongWritable, Text, ReduceSideJoinKey,
         int airportCode = Integer.parseInt(record.get(0));
         float airportName = Float.parseFloat(record.get(1));
 
-
+        
     }
 }
