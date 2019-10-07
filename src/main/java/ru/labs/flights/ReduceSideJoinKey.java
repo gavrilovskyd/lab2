@@ -2,6 +2,7 @@ package ru.labs.flights;
 
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.WritableComparable;
+import org.apache.hadoop.io.WritableComparator;
 
 import java.io.DataInput;
 import java.io.DataOutput;
@@ -46,5 +47,10 @@ public class ReduceSideJoinKey implements WritableComparable<ReduceSideJoinKey> 
         return joinKey.hashCode();
     }
 
-    public class 
+    public class GroupingComparator extends WritableComparator {
+        @Override
+        public int compare(ReduceSideJoinKey key1, ReduceSideJoinKey key2) {
+            return key1.compareTo(key2);
+        }
+    }
 }
