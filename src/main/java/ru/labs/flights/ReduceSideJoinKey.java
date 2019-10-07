@@ -50,7 +50,7 @@ public class ReduceSideJoinKey implements WritableComparable<ReduceSideJoinKey> 
     public static class GroupingComparator extends WritableComparator {
 
         protected GroupingComparator() {
-            super(WritableComparator.class, true);
+            super(ReduceSideJoinKey.class, true);
         }
 
         @Override
