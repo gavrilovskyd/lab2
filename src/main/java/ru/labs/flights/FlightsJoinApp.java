@@ -25,7 +25,7 @@ public class FlightsJoinApp {
 
         FileOutputFormat.setOutputPath(job, new Path(args[2]));
         job.setPartitionerClass(HashPartitioner.class);
-        job.setGroupingComparatorClass(WritableComparator.class);
+        job.setGroupingComparatorClass(ReduceSideJoinKey.GroupingComparator.class);
         job.setReducerClass(FlightReduceJoin.class);
         job.setMapOutputKeyClass(ReduceSideJoinKey.class);
 
