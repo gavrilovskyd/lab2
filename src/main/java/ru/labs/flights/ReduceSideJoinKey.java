@@ -10,6 +10,8 @@ public class ReduceSideJoinKey implements Writable {
     private int joinKey;
     private boolean isUnique;
 
+    public ReduceSideJoinKey()
+
     public ReduceSideJoinKey(int key, boolean unique) {
         this.joinKey = key;
         this.isUnique = unique;
