@@ -1,4 +1,7 @@
 package ru.labs.flights;
 
-public class FlightReduceJoin {
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Reducer;
+
+public class FlightReduceJoin extends Reducer<ReduceSideJoinKey, Text, Text, Text> {
 }
