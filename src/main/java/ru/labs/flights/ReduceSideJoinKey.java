@@ -58,7 +58,7 @@ public class ReduceSideJoinKey implements WritableComparable<ReduceSideJoinKey> 
             ReduceSideJoinKey k1 = (ReduceSideJoinKey)key1;
             ReduceSideJoinKey k2 = (ReduceSideJoinKey)key2;
 
-            return k1.compareTo(k2);
+            return k1.joinKey.compareTo(k2.joinKey);
         }
     }
 }
