@@ -17,6 +17,7 @@ public class FlightReduceJoin extends Reducer<ReduceSideJoinKey, Text, Text, Tex
         float summaryDelay = 0;
         float maxDelay = -1;
         float minDelay = Float.MAX_VALUE;
+        System.out.println(airportName);
         while (iter.hasNext()) {
             //System.out.println(airportName);
             float delay = Float.parseFloat(iter.next().toString());
