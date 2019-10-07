@@ -29,9 +29,9 @@ public class FlightsJoinApp {
         //job.setReducerClass(FlightReduceJoin.class);
         job.setMapOutputKeyClass(ReduceSideJoinKey.class);
 
-        //job.setOutputKeyClass(Text.class);
-        //job.setOutputValueClass(Text.class);
-        //job.setNumReduceTasks(2);
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(Text.class);
+        job.setNumReduceTasks(2);
         System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
 }
