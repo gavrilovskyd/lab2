@@ -10,7 +10,7 @@ import org.apache.hadoop.mapreduce.Mapper;
 
 import java.io.IOException;
 
-public class FlightMapper extends Mapper<LongWritable, Text, ReduceSideJoinKey, FloatWritable> {
+public class FlightMapper extends Mapper<LongWritable, Text, ReduceSideJoinKey, Text> {
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         // TODO: read csv correct
