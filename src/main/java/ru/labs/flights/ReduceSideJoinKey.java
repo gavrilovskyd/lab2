@@ -20,7 +20,7 @@ public class ReduceSideJoinKey implements Writable {
     }
 
     public void write(DataOutput out) throws IOException {
-        out.writeBytes(joinKey);
+        joinKey.write(out);
         out.writeByte(isUnique ? 0 : 1);
     }
 
