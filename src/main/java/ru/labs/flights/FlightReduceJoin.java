@@ -27,7 +27,7 @@ public class FlightReduceJoin extends Reducer<ReduceSideJoinKey, Text, Text, Tex
         }
 
         if (delayCount != 0) {
-            context.write(airportName, new Text(Float(summaryDelay / delayCount)));
+            context.write(airportName, new Text(new Float(summaryDelay / delayCount)));
         }
     }
 }
