@@ -20,5 +20,9 @@ public class ReduceSideJoinKey implements Writable {
         isUnique = (in.readByte() == 0);
     }
 
-    public static ReduceSideJoinKey read
+    public static ReduceSideJoinKey read(DataInput in) throws IOException {
+        ReduceSideJoinKey k = new ReduceSideJoinKey();
+        k.readFields(in);
+        return k;
+    }
 }
