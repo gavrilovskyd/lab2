@@ -18,5 +18,7 @@ public class AirportMapper extends Mapper<LongWritable, Text, ReduceSideJoinKey,
 
         int airportCode = Integer.parseInt(record.get(14));
         float delay = Float.parseFloat(record.get(18));
+
+        
     }
 }
