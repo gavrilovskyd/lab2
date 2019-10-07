@@ -1,5 +1,6 @@
 package ru.labs.flights;
 
+import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.Writable;
 import org.apache.hadoop.mapreduce.Partitioner;
 
@@ -8,7 +9,7 @@ import java.io.DataOutput;
 import java.io.IOException;
 
 public class ReduceSideJoinKey implements Writable {
-    private String joinKey;
+    private Text joinKey;
     private boolean isUnique;
 
     public ReduceSideJoinKey() {}
