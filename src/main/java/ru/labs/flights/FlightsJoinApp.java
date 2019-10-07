@@ -26,12 +26,12 @@ public class FlightsJoinApp {
         FileOutputFormat.setOutputPath(job, new Path(args[2]));
         job.setPartitionerClass(HashPartitioner.class);
         //job.setGroupingComparatorClass(WritableComparator.class);
-        job.setReducerClass(FlightReduceJoin.class);
+        //job.setReducerClass(FlightReduceJoin.class);
         job.setMapOutputKeyClass(ReduceSideJoinKey.class);
 
-        job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(Text.class);
-        job.setNumReduceTasks(2);
+        //job.setOutputKeyClass(Text.class);
+        //job.setOutputValueClass(Text.class);
+        //job.setNumReduceTasks(2);
         System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
 }
