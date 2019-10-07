@@ -16,7 +16,7 @@ public class FlightMapper extends Mapper<LongWritable, Text, ReduceSideJoinKey, 
         CSVRecord record = parser.getRecords().get(0); //TODO: catch
 
         if (Float.parseFloat(record.get(19)) < 1e-6 && !record.get(18).isEmpty()) { // Not canceled and has delay data
-            context.write(new ReduceSideJoinKey(new Text(record.get(14)), true), new Text(record.get(18)));
+            context.write(new ReduceSideJoinKey(new Text(record.get(14)), false), new Text(record.get(18)));
         }
     }
 }
