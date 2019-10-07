@@ -22,5 +22,6 @@ public class FlightsJoinApp {
 
         FileOutputFormat.setOutputPath(job, new Path(args[2]));
         job.setMapOutputKeyClass(ReduceSideJoinKey.class);
+        job.setNumReduceTasks(2);
     }
 }
