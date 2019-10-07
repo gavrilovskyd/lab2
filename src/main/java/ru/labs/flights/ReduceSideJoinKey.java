@@ -20,7 +20,7 @@ public class ReduceSideJoinKey implements WritableComparable<ReduceSideJoinKey> 
 
     public void write(DataOutput out) throws IOException {
         joinKey.write(out);
-        out.writeByte(isUnique ? 0 : 1);
+        out.writeByte(isUnique);
     }
 
     public void readFields(DataInput in) throws IOException {
