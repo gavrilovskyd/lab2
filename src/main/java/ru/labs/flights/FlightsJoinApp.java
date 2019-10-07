@@ -7,7 +7,6 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.input.MultipleInputs;
 import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.partition.HashPartitioner;
-import org.apache.hadoop.mapreduce.lib.partition.KeyFieldBasedComparator;
 
 public class FlightsJoinApp {
     public static void main(String []args) throws Exception {
@@ -29,6 +28,7 @@ public class FlightsJoinApp {
         job.setReducerClass(FlightReduceJoin.class);
         job.setMapOutputKeyClass(ReduceSideJoinKey.class);
 
+        job.setOutputKeyClass(Text);
         job.setNumReduceTasks(2);
         System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
