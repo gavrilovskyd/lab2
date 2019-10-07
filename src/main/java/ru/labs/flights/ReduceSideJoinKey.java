@@ -15,7 +15,7 @@ public class ReduceSideJoinKey implements WritableComparable<ReduceSideJoinKey> 
 
     public ReduceSideJoinKey(Text key, boolean unique) {
         joinKey = key;
-        isUnique = unique;
+        isUnique = (unique ? 0 : 1);
     }
 
     public void write(DataOutput out) throws IOException {
