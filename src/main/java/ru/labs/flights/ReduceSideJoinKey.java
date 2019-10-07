@@ -52,7 +52,7 @@ public class ReduceSideJoinKey implements WritableComparable<ReduceSideJoinKey> 
         @Override
         public int compare(WritableComparable key1, WritableComparable key2) {
             ReduceSideJoinKey k1 = (ReduceSideJoinKey)key1;
-
+            ReduceSideJoinKey k2 = (ReduceSideJoinKey)key2;
 
             return key1.compareTo((ReduceSideJoinKey)key2);
         }
