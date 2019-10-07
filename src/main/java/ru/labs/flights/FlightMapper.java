@@ -16,7 +16,7 @@ public class FlightMapper extends Mapper<LongWritable, Text, ReduceSideJoinKey, 
         CSVParser parser = CSVParser.parse(value.toString(), CSVFormat.RFC4180);
         CSVRecord record = parser.getRecords().get(0); //TODO: catch
 
-        if (Float.parseFloat(record.get(19)) > 1e-9) {
+        if (Float.parseFloat(record.get(19)) > 1e-6) {
             context.write(new ReduceSideJoinKey(new Text(record.get(14)), true), new Text(record.get(18)));
         }
     }
