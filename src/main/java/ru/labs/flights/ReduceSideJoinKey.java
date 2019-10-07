@@ -25,7 +25,7 @@ public class ReduceSideJoinKey implements WritableComparable<ReduceSideJoinKey> 
 
     public void readFields(DataInput in) throws IOException {
         joinKey.readFields(in);
-        isUnique = (in.readByte() == 0);
+        isUnique = in.readByte();
     }
 
     public static ReduceSideJoinKey read(DataInput in) throws IOException {
