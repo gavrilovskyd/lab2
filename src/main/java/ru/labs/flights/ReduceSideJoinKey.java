@@ -46,5 +46,5 @@ public class ReduceSideJoinKey implements WritableComparable<ReduceSideJoinKey> 
         return joinKey.hashCode();
     }
 
-    
+    public class 
 }
