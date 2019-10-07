@@ -47,7 +47,7 @@ public class ReduceSideJoinKey implements WritableComparable<ReduceSideJoinKey> 
         return joinKey.hashCode();
     }
 
-    public class GroupingComparator extends WritableComparator {
+    public static class GroupingComparator extends WritableComparator {
         @Override
         public int compare(ReduceSideJoinKey key1, ReduceSideJoinKey key2) {
             return key1.compareTo(key2);
