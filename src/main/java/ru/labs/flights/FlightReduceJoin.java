@@ -12,5 +12,9 @@ public class FlightReduceJoin extends Reducer<ReduceSideJoinKey, Text, Text, Tex
             throws IOException, InterruptedException {
         Iterator<Text> iter = values.iterator();
         Text airportName = new Text(iter.next());
+
+        while (iter.hasNext()) {
+            
+        }
     }
 }
