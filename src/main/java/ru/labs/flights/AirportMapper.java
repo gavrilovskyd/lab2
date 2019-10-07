@@ -16,6 +16,6 @@ public class AirportMapper extends Mapper<LongWritable, Text, ReduceSideJoinKey,
         CSVParser parser = CSVParser.parse(value.toString(), CSVFormat.RFC4180);
         CSVRecord record = parser.getRecords().get(0); //TODO: catch
 
-        record.get(14);
+        record.get(14).;
     }
 }
