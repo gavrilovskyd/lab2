@@ -6,7 +6,5 @@ public class FlightsJoinApp {
             System.err.println("Usage: FlightsJoinApp <input path> <output path>");
             System.exit(-1);
         }
-
-
     }
 }
