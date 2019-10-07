@@ -34,5 +34,7 @@ public class ReduceSideJoinKey implements Writable {
         return k;
     }
 
-    public static class partitioner<V> extends Partitioner<ReduceSideJoinKey, >
+    public static class partitioner<V> extends Partitioner<ReduceSideJoinKey, V> {
+        
+    }
 }
