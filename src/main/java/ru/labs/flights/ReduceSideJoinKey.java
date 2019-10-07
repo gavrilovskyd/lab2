@@ -35,9 +35,7 @@ public class ReduceSideJoinKey implements Writable {
         return k;
     }
 
-    public static class partitioner<V> extends Partitioner<ReduceSideJoinKey, V> {
-        public int getPartition(ReduceSideJoinKey key, V value, int numReduceTasks) {
-            return (key.joinKey)
-        }
+    public int hashCode() {
+        
     }
 }
