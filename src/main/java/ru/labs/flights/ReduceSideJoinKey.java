@@ -38,18 +38,14 @@ public class ReduceSideJoinKey implements WritableComparable<ReduceSideJoinKey> 
         return k;
     }
 
+    @Override
     public int compareTo(ReduceSideJoinKey k) {
         int keyResult = joinKey.compareTo(k.joinKey);
         return (keyResult == 0 ? (isUnique - k.isUnique) : keyResult);
     }
 
+    @Override
     public int hashCode() {
         return joinKey.hashCode();
-    }
-
-    public static class GroupingComparator extends WritableComparator {
-        public int compare(ReduceSideJoinKey key1, ReduceSideJoinKey key2) {
-            return key1.compareTo(key2);
-        }
     }
 }
