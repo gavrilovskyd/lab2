@@ -2,6 +2,7 @@ package ru.labs.flights;
 
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.Text;
+import org.apache.hadoop.io.WritableComparator;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.input.MultipleInputs;
@@ -24,7 +25,7 @@ public class FlightsJoinApp {
 
         FileOutputFormat.setOutputPath(job, new Path(args[2]));
         job.setPartitionerClass(HashPartitioner.class);
-        job.setGroupingComparatorClass(ReduceSideJoinKey.GroupingComparator.class);
+        job.setGroupingComparatorClass(WritableComparator.class);
         job.setReducerClass(FlightReduceJoin.class);
         job.setMapOutputKeyClass(ReduceSideJoinKey.class);
 
