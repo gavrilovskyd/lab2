@@ -19,4 +19,6 @@ public class ReduceSideJoinKey implements Writable {
         joinKey = in.readInt();
         isUnique = (in.readByte() == 0);
     }
+
+    
 }
