@@ -17,5 +17,6 @@ public class AirportMapper extends Mapper<LongWritable, Text, ReduceSideJoinKey,
         CSVRecord record = parser.getRecords().get(0); //TODO: catch
 
         int airportCode = Integer.parseInt(record.get(14));
+        float delay = Float.parseFloat(record.get(18));
     }
 }
