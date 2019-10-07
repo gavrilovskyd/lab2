@@ -3,6 +3,7 @@ package ru.labs.flights;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.mapred.TextInputFormat;
 import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.lib.input.MultipleInputs;
 
 public class FlightsJoinApp {
     public static void main(String []args) throws Exception {
