@@ -13,6 +13,6 @@ public class FlightsJoinApp {
         job.setJarByClass(FlightsJoinApp.class);
         job.setJobName("FlightsJoinJob");
 
-        
+        Mul
     }
 }
