@@ -15,8 +15,8 @@ public class ReduceSideJoinKey implements Writable {
     public ReduceSideJoinKey() {}
 
     public ReduceSideJoinKey(Text key, boolean unique) {
-        this.joinKey = key;
-        this.isUnique = unique;
+        joinKey = key;
+        isUnique = unique;
     }
 
     public void write(DataOutput out) throws IOException {
@@ -36,6 +36,6 @@ public class ReduceSideJoinKey implements Writable {
     }
 
     public int hashCode() {
-        return 
+        return
     }
 }
