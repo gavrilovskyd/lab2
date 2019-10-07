@@ -11,8 +11,8 @@ public class ReduceSideJoinKey implements Writable {
     private boolean isUnique;
 
     public ReduceSideJoinKey(int key, boolean unique) {
-        joinKey = key;
-        isUnique = unique;
+        this.joinKey = key;
+        this.isUnique = unique;
     }
 
     public void write(DataOutput out) throws IOException {
