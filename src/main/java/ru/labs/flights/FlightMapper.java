@@ -18,6 +18,6 @@ public class FlightMapper extends Mapper<LongWritable, Text, ReduceSideJoinKey, 
         CSVRecord record = parser.getRecords().get(0); //TODO: catch
 
         context.write(new ReduceSideJoinKey(new Text(record.get(14)), true),
-                new FloatWritable(Float.parseFloat(record.get(18))));
+                new Text(Float.parseFloat(record.get(18))));
     }
 }
