@@ -9,7 +9,7 @@ import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 
-public class ReduceSideJoinKey implements WritableComparable {
+public class ReduceSideJoinKey implements WritableComparable<ReduceSideJoinKey> {
     private Text joinKey;
     private boolean isUnique;
 
