@@ -15,7 +15,9 @@ public class FlightMapper extends Mapper<LongWritable, Text, ReduceSideJoinKey, 
         CSVParser parser = CSVParser.parse(value.toString(), CSVFormat.RFC4180);
         CSVRecord record = parser.getRecords().get(0); //TODO: catch
 
-        if (Float.parseFloat(record.get(19)) < 1e-6 && !record.get(18).isEmpty() && Float.parseFloat(record.get(18)) > 1e-6) { // Not canceled and has delay data
+        if (Float.parseFloat(record.get(19)) < 1e-6
+                && !record.get(18).isEmpty()
+                && Float.parseFloat(record.get(18)) > 1e-6) { // Not canceled and has delay data
             context.write(new ReduceSideJoinKey(new Text(record.get(14)), false), new Text(record.get(18)));
         }
     }
