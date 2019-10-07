@@ -1,6 +1,7 @@
 package ru.labs.flights;
 
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.mapred.TextInputFormat;
 import org.apache.hadoop.mapred.lib.MultipleInputs;
 import org.apache.hadoop.mapreduce.Job;
 
@@ -15,6 +16,6 @@ public class FlightsJoinApp {
         job.setJarByClass(FlightsJoinApp.class);
         job.setJobName("FlightsJoinJob");
 
-        MultipleInputs.addInputPath(job, new Path(args[0]));
+        MultipleInputs.addInputPath(job, new Path(args[0]), TextInputFormat.class, FlightMapper.class);
     }
 }
