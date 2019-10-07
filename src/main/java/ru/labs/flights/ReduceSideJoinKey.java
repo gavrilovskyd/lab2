@@ -35,6 +35,8 @@ public class ReduceSideJoinKey implements Writable {
     }
 
     public static class partitioner<V> extends Partitioner<ReduceSideJoinKey, V> {
-        
+        public int getPartition(ReduceSideJoinKey key, V value, int numReduceTasks) {
+            
+        }
     }
 }
