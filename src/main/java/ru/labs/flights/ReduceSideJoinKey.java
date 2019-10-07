@@ -50,7 +50,7 @@ public class ReduceSideJoinKey implements WritableComparable<ReduceSideJoinKey> 
     public static class GroupingComparator extends WritableComparator {
 
         @Override
-        public int compare(ReduceSideJoinKey key1, ReduceSideJoinKey key2) {
+        public int compare(WritableComparator key1, WritableComparator key2) {
             return key1.compareTo(key2);
         }
     }
