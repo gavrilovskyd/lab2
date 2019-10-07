@@ -36,6 +36,6 @@ public class ReduceSideJoinKey implements Writable {
     }
 
     public int hashCode() {
-        
+        return 
     }
 }
