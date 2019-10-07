@@ -5,6 +5,7 @@ import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.input.MultipleInputs;
 import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
+import org.apache.hadoop.mapreduce.lib.partition.HashPartitioner;
 
 public class FlightsJoinApp {
     public static void main(String []args) throws Exception {
@@ -22,6 +23,7 @@ public class FlightsJoinApp {
 
         FileOutputFormat.setOutputPath(job, new Path(args[2]));
         job.setMapOutputKeyClass(ReduceSideJoinKey.class);
+        job.setPartitionerClass(HashPartitioner.class);
 
         job.setNumReduceTasks(2);
         System.exit(job.waitForCompletion(true) ? 0 : 1);
