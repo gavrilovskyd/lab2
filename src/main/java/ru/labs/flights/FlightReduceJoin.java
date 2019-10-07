@@ -16,6 +16,7 @@ public class FlightReduceJoin extends Reducer<ReduceSideJoinKey, Text, Text, Tex
         int delayCount = 0;
         float summaryDelay = 0;
         float maxDelay = -1;
+        float minDelay = Float.MAX_VALUE;
         while (iter.hasNext()) {
 
         }
