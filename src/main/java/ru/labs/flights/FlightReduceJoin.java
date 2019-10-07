@@ -20,12 +20,13 @@ public class FlightReduceJoin extends Reducer<ReduceSideJoinKey, Text, Text, Tex
 
         String testStr = "";
         while (iter.hasNext()) {
-            float delay = Float.parseFloat(iter.next().toString());
+            //float delay = Float.parseFloat(iter.next().toString());
+            testStr += iter.next().toString()
 
             delayCount++;
-            summaryDelay += delay;
-            maxDelay = Math.max(maxDelay, delay);
-            minDelay = Math.min(minDelay, delay);
+            //summaryDelay += delay;
+            //maxDelay = Math.max(maxDelay, delay);
+            //minDelay = Math.min(minDelay, delay);
         }
 
         if (delayCount != 0) {
