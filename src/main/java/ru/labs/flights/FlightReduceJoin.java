@@ -22,6 +22,7 @@ public class FlightReduceJoin extends Reducer<ReduceSideJoinKey, Text, Text, Tex
         while (iter.hasNext()) {
             //float delay = Float.parseFloat(iter.next().toString());
             testStr.append(iter.next().toString());
+            testStr.append(";");
 
             delayCount++;
             //summaryDelay += delay;
