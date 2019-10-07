@@ -24,9 +24,9 @@ public class FlightsJoinApp {
         MultipleInputs.addInputPath(job, new Path(args[1]), TextInputFormat.class, AirportMapper.class);
 
         FileOutputFormat.setOutputPath(job, new Path(args[2]));
-        job.setMapOutputKeyClass(ReduceSideJoinKey.class);
         job.setPartitionerClass(HashPartitioner.class);
         job.setGroupingComparatorClass(WritableComparator.class);
+        job.setMapOutputKeyClass(ReduceSideJoinKey.class);
 
         job.setNumReduceTasks(2);
         System.exit(job.waitForCompletion(true) ? 0 : 1);
