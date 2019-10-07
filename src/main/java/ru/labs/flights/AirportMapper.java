@@ -18,6 +18,6 @@ public class AirportMapper extends Mapper<LongWritable, Text, ReduceSideJoinKey,
 
         int airportCode = Integer.parseInt(record.get(0));
 
-        context.write(new ReduceSideJoinKey(), new Text( record.get(1)));
+        context.write(new ReduceSideJoinKey(), new Text(record.get(1)));
     }
 }
