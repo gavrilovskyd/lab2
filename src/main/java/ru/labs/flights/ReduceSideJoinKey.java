@@ -24,7 +24,7 @@ public class ReduceSideJoinKey implements Writable {
     }
 
     public void readFields(DataInput in) throws IOException {
-        joinKey = in.readInt();
+        joinKey = in.read();
         isUnique = (in.readByte() == 0);
     }
 
