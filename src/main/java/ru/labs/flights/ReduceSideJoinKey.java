@@ -1,6 +1,8 @@
 package ru.labs.flights;
 
-public class ReduceSideJoinKey {
+import org.apache.hadoop.io.Writable;
+
+public class ReduceSideJoinKey implements Writable {
     private int joinKey;
     private boolean isUnique;
 }
