@@ -20,5 +20,5 @@ public class ReduceSideJoinKey implements Writable {
         isUnique = (in.readByte() == 0);
     }
 
-    
+    public static ReduceSideJoinKey 
 }
