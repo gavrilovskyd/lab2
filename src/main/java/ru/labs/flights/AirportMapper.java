@@ -17,8 +17,8 @@ public class AirportMapper extends Mapper<LongWritable, Text, ReduceSideJoinKey,
         CSVRecord record = parser.getRecords().get(0); //TODO: catch
 
         int airportCode = Integer.parseInt(record.get(0));
-        float airportName = Float.parseFloat(record.get(1));
+        float airportName = record.get(1);
 
-        
+        context.write(new ReduceSideJoinKey(), new Text(ai));
     }
 }
