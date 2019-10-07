@@ -13,6 +13,7 @@ public class ReduceSideJoinKey implements WritableComparable<ReduceSideJoinKey> 
 
     public ReduceSideJoinKey() {
         joinKey = new Text();
+        isUnique = 0;
     }
 
     public ReduceSideJoinKey(Text key, boolean unique) {
