@@ -8,7 +8,7 @@ import java.io.DataOutput;
 import java.io.IOException;
 
 public class ReduceSideJoinKey implements Writable {
-    private int joinKey;
+    private String joinKey;
     private boolean isUnique;
 
     public ReduceSideJoinKey() {}
