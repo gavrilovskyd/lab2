@@ -35,7 +35,8 @@ public class ReduceSideJoinKey implements WritableComparable<ReduceSideJoinKey> 
     }
 
     public int compareTo(ReduceSideJoinKey k) {
-        return joinKey.compareTo(k.joinKey);
+        int keyResult = joinKey.compareTo(k.joinKey);
+        return ;
     }
 
     public int hashCode() {
