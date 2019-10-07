@@ -7,6 +7,6 @@ public class FlightsJoinApp {
             System.exit(-1);
         }
 
-        
+
     }
 }
