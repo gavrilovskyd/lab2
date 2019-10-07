@@ -13,8 +13,8 @@ public class FlightReduceJoin extends Reducer<ReduceSideJoinKey, Text, Text, Tex
         Iterator<Text> iter = values.iterator();
         Text airportName = new Text(iter.next());
 
+        int delayCount = 0;
         float summaryDelay = 0;
-
 
         while (iter.hasNext()) {
 
