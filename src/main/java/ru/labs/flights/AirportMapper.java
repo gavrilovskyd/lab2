@@ -11,6 +11,6 @@ public class AirportMapper extends Mapper<LongWritable, Text, ReduceSideJoinKey,
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         // TODO: read csv correct
-        CSVParser
+        CSVParser parser = CSVParser.parse()
     }
 }
