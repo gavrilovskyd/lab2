@@ -1,6 +1,5 @@
 package ru.labs.flights;
 
-import com.opencsv.CSVParser;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
