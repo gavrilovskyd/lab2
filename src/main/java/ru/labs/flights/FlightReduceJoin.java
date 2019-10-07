@@ -17,22 +17,17 @@ public class FlightReduceJoin extends Reducer<ReduceSideJoinKey, Text, Text, Tex
         float summaryDelay = 0;
         float maxDelay = -1;
         float minDelay = Float.MAX_VALUE;
-
-        StringBuilder testStr = new StringBuilder();
         while (iter.hasNext()) {
-            //float delay = Float.parseFloat(iter.next().toString());
-            testStr.append(iter.next().toString());
-            testStr.append(";");
+            float delay = Float.parseFloat(iter.next().toString());
 
             delayCount++;
-            //summaryDelay += delay;
-            //maxDelay = Math.max(maxDelay, delay);
-            //minDelay = Math.min(minDelay, delay);
+            summaryDelay += delay;
+            maxDelay = Math.max(maxDelay, delay);
+            minDelay = Math.min(minDelay, delay);
         }
 
         if (delayCount != 0) {
-            context.write(airportName, new Text(testStr.toString()));
-            //context.write(airportName, new Text((summaryDelay / delayCount)+","+maxDelay+","+minDelay));
+            context.write(airportName, new Text((summaryDelay / delayCount)+","+maxDelay+","+minDelay));
         }
     }
 }
