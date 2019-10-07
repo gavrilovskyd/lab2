@@ -11,7 +11,7 @@ public class FlightReduceJoin extends Reducer<ReduceSideJoinKey, Text, Text, Tex
     protected void reduce(ReduceSideJoinKey key, Iterable<Text> values, Context context)
             throws IOException, InterruptedException {
         Iterator<Text> iter = values.iterator();
-        Text airportName = new Text(iter.next());
+        String airportName = iter.next().toString();
 
         int delayCount = 0;
         float summaryDelay = 0;
