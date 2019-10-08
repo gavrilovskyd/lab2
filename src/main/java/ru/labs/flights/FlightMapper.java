@@ -20,7 +20,7 @@ public class FlightMapper extends Mapper<LongWritable, Text, ReduceSideJoinKey, 
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         CSVParser parser = CSVParser.parse(value.toString(), CSVFormat.RFC4180.withHeader(flightHeader));
-        CSVRecord record = parser.getRecords().get(0); //TODO: catch
+        CSVRecord record = parser.getRecords().get(0);
 
         if (Float.parseFloat(record.get(19)) < 1e-6             // Not canceled
                 && !record.get(18).isEmpty()                    // Has delay data
