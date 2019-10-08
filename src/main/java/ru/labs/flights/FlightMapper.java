@@ -10,6 +10,7 @@ import org.apache.hadoop.mapreduce.Mapper;
 import java.io.IOException;
 
 public class FlightMapper extends Mapper<LongWritable, Text, ReduceSideJoinKey, Text> {
+    static final double EPS = 1e-6;
     static final String[] flightHeader = {
             "YEAR","QUARTER","MONTH", "DAY_OF_MONTH","DAY_OF_WEEK","FL_DATE","UNIQUE_CARRIER",
             "AIRLINE_ID","CARRIER","TAIL_NUM","FL_NUM","ORIGIN_AIRPORT_ID","ORIGIN_AIRPORT_SEQ_ID",
