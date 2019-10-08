@@ -12,7 +12,7 @@ import java.io.IOException;
 public class FlightMapper extends Mapper<LongWritable, Text, ReduceSideJoinKey, Text> {
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
-        CSVParser parser = CSVParser.parse(value.toString(), CSVFormat.RFC4180.withHeader());
+        CSVParser parser = CSVParser.parse(value.toString(), CSVFormat.RFC4180.withHeader("YEAR", ));
         CSVRecord record = parser.getRecords().get(0); //TODO: catch
 
         if (Float.parseFloat(record.get(19)) < 1e-6             // Not canceled
