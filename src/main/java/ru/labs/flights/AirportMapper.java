@@ -13,8 +13,7 @@ public class AirportMapper extends Mapper<LongWritable, Text, ReduceSideJoinKey,
     private static final String[] airportHeader = {"Code", "Description"};
 
     @Override
-    protected void map(LongWritable key, Text value, Context context)
-            throws IOException, InterruptedException {
+    protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         CSVParser parser = CSVParser.parse(value.toString(), CSVFormat.RFC4180.withHeader(airportHeader));
         CSVRecord record = parser.getRecords().get(0);
 
