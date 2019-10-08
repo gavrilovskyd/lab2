@@ -10,7 +10,7 @@ import org.apache.hadoop.mapreduce.Mapper;
 import java.io.IOException;
 
 public class AirportMapper extends Mapper<LongWritable, Text, ReduceSideJoinKey, Text> {
-    static final CSVFormat format = CSVFormat.RFC4180.withHeader("Code", "");
+    static final CSVFormat format = CSVFormat.RFC4180.withHeader("Code", "Description");
 
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
