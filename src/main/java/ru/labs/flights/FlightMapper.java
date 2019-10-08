@@ -23,7 +23,7 @@ public class FlightMapper extends Mapper<LongWritable, Text, ReduceSideJoinKey, 
         CSVParser parser = CSVParser.parse(value.toString(), CSVFormat.RFC4180.withHeader(flightHeader));
         CSVRecord record = parser.getRecords().get(0);
 
-        if (Float.parseFloat(record.get("CANCELLED")) < EPS                     // Not canceled
+        if (Float.parseFloat(record.get("CANCELLED")) < EPS                     // Not canceled (not 0.00)
                 && !record.get("ARR_DELAY_NEW").isEmpty()                       // Has delay data
                 && Float.parseFloat(record.get("ARR_DELAY_NEW")) > EPS) {       // Delay is not 0.00
             context.write(new ReduceSideJoinKey(new Text(record.get("DEST_AIRPORT_ID")), false),
