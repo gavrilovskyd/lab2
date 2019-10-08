@@ -22,6 +22,7 @@ public class ReduceSideJoinKey implements WritableComparable<ReduceSideJoinKey> 
         isUnique = (unique ? 0 : 1);
     }
 
+    @Override
     public void write(DataOutput out) throws IOException {
         joinKey.write(out);
         out.writeByte(isUnique);
