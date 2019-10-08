@@ -26,7 +26,8 @@ public class FlightMapper extends Mapper<LongWritable, Text, ReduceSideJoinKey, 
         if (Float.parseFloat(record.get("CANCELLED")) < EPS             // Not canceled
                 && !record.get("ARR_DELAY_NEW").isEmpty()                    // Has delay data
                 && Float.parseFloat(record.get("ARR_DELAY_NEW")) > EPS) {   // Delay is not 0.00
-            context.write(new ReduceSideJoinKey(new Text(record.get("DEST_AIRPORT_ID")), false), new Text(record.get(18)));
+            context.write(new ReduceSideJoinKey(new Text(record.get("DEST_AIRPORT_ID")), false),
+                    new Text(record.get("ARR_DELAY_NEW")));
         }
     }
 }
