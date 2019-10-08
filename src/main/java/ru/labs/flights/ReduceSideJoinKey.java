@@ -28,6 +28,7 @@ public class ReduceSideJoinKey implements WritableComparable<ReduceSideJoinKey> 
         out.writeByte(isUnique);
     }
 
+    @Override
     public void readFields(DataInput in) throws IOException {
         joinKey.readFields(in);
         isUnique = in.readByte();
