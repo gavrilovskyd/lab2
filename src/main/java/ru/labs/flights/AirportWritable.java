@@ -1,5 +1,8 @@
 package ru.labs.flights;
 
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.Writable;
 
@@ -17,5 +20,7 @@ public class AirportWritable implements Writable {
     @Override
     public void readFields(DataInput in) throws IOException {
         csvLine.readFields(in);
+        CSVParser parser = CSVParser.parse(value.toString(), CSVFormat.RFC4180.withHeader(airportHeader));
+        CSVRecord record = parser.getRecords().get(0);
     }
 }
