@@ -9,11 +9,11 @@ import org.apache.hadoop.mapreduce.Mapper;
 
 import java.io.IOException;
 
-public class AirportMapper extends Mapper<LongWritable, Text, ReduceSideJoinKey, Text> {
+public class AirportMapper extends Mapper<LongWritable, AirportWritable, ReduceSideJoinKey, Text> {
     private static final String[] airportHeader = {"Code", "Description"};
 
     @Override
-    protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+    protected void map(LongWritable key, AirportWritable value, Context context) throws IOException, InterruptedException {
         CSVParser parser = CSVParser.parse(value.toString(), CSVFormat.RFC4180.withHeader(airportHeader));
         CSVRecord record = parser.getRecords().get(0);
 
