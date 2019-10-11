@@ -5,4 +5,8 @@ import org.apache.hadoop.io.Writable;
 
 public class AirportWritable implements Writable {
     private Text csvLine;
+
+    public AirportWritable() {
+        csvLine = new Text();
+    }
 }
