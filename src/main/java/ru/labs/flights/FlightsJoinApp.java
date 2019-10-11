@@ -21,7 +21,7 @@ public class FlightsJoinApp {
         job.setJobName("FlightsJoinJob");
 
         MultipleInputs.addInputPath(job, new Path(args[0]), TextInputFormat.class, FlightMapper.class);
-        MultipleInputs.addInputPath(job, new Path(args[1]), AirportWritable.class, AirportMapper.class);
+        MultipleInputs.addInputPath(job, new Path(args[1]), TextInputFormat.class, AirportMapper.class);
 
         FileOutputFormat.setOutputPath(job, new Path(args[2]));
         job.setPartitionerClass(HashPartitioner.class);
