@@ -16,6 +16,6 @@ public class AirportWritable implements Writable {
 
     @Override
     public void readFields(DataInput in) throws IOException {
-
+        csvLine.readFields(in);
     }
 }
