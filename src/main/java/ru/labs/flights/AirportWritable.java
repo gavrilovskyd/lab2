@@ -17,6 +17,8 @@ public class AirportWritable implements Writable {
 
     public AirportWritable() {
         csvLine = new Text();
+        code = new Text();
+        description = new Text();
     }
 
     @Override
