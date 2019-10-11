@@ -14,7 +14,6 @@ public class AirportMapper extends Mapper<LongWritable, AirportWritable, ReduceS
 
     @Override
     protected void map(LongWritable key, AirportWritable value, Context context) throws IOException, InterruptedException {
-        context.write(new ReduceSideJoinKey(value.getCode(), true),
-                value.getDescription());
+        context.write(new ReduceSideJoinKey(value.getCode(), true), value.getDescription());
     }
 }
