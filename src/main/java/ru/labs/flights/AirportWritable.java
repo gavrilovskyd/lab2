@@ -7,6 +7,7 @@ import java.io.DataInput;
 import java.io.IOException;
 
 public class AirportWritable implements Writable {
+    private static final String[] airportHeader = {"Code", "Description"};
     private Text csvLine;
 
     public AirportWritable() {
@@ -15,6 +16,6 @@ public class AirportWritable implements Writable {
 
     @Override
     public void readFields(DataInput in) throws IOException {
-        
+
     }
 }
