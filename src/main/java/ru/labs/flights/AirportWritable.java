@@ -38,4 +38,8 @@ public class AirportWritable implements Writable {
         code.write(out);
         description.write(out);
     }
+
+    public Text getCode() {
+        return code;
+    }
 }
