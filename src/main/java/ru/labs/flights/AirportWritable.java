@@ -29,5 +29,6 @@ public class AirportWritable implements Writable {
         CSVRecord record = parser.getRecords().get(0);
 
         code.set(record.get("Code"));
+        description.set(record.get("Description"));
     }
 }
