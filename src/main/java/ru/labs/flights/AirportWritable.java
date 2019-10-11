@@ -7,6 +7,7 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.Writable;
 
 import java.io.DataInput;
+import java.io.DataOutput;
 import java.io.IOException;
 
 public class AirportWritable implements Writable {
@@ -30,5 +31,10 @@ public class AirportWritable implements Writable {
 
         code.set(record.get("Code"));
         description.set(record.get("Description"));
+    }
+
+    @Override
+    public void write(DataOutput out) throws IOException {
+        
     }
 }
