@@ -10,8 +10,6 @@ import org.apache.hadoop.mapreduce.Mapper;
 import java.io.IOException;
 
 public class AirportMapper extends Mapper<LongWritable, AirportWritable, ReduceSideJoinKey, Text> {
-    private static final String[] airportHeader = {"Code", "Description"};
-
     @Override
     protected void map(LongWritable key, AirportWritable value, Context context) throws IOException, InterruptedException {
         context.write(new ReduceSideJoinKey(value.getCode(), true), value.getDescription());
