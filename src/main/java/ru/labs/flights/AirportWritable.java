@@ -12,6 +12,8 @@ import java.io.IOException;
 public class AirportWritable implements Writable {
     private static final String[] airportHeader = {"Code", "Description"};
     private Text csvLine;
+    private Text code;
+    private Text description;
 
     public AirportWritable() {
         csvLine = new Text();
