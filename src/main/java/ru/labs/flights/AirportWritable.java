@@ -27,5 +27,7 @@ public class AirportWritable implements Writable {
 
         CSVParser parser = CSVParser.parse(csvLine.toString(), CSVFormat.RFC4180.withHeader(airportHeader));
         CSVRecord record = parser.getRecords().get(0);
+
+        code.set(record.get("Code"));
     }
 }
