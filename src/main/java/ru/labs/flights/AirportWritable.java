@@ -20,7 +20,8 @@ public class AirportWritable implements Writable {
     @Override
     public void readFields(DataInput in) throws IOException {
         csvLine.readFields(in);
-        CSVParser parser = CSVParser.parse(value.toString(), CSVFormat.RFC4180.withHeader(airportHeader));
+
+        CSVParser parser = CSVParser.parse(csvLine.toString(), CSVFormat.RFC4180.withHeader(airportHeader));
         CSVRecord record = parser.getRecords().get(0);
     }
 }
