@@ -22,6 +22,14 @@ public class AirportWritable implements Writable {
         description = new Text();
     }
 
+    public Text getCode() {
+        return code;
+    }
+
+    public Text getDescription() {
+        return description;
+    }
+
     @Override
     public void readFields(DataInput in) throws IOException {
         csvLine.readFields(in);
