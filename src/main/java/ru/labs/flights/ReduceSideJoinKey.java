@@ -3,6 +3,7 @@ package ru.labs.flights;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.WritableComparable;
 import org.apache.hadoop.io.WritableComparator;
+import org.apache.hadoop.mapreduce.Partitioner;
 
 import java.io.DataInput;
 import java.io.DataOutput;
@@ -41,9 +42,11 @@ public class ReduceSideJoinKey implements WritableComparable<ReduceSideJoinKey> 
         return (keyResult == 0 ? (isUnique - k.isUnique) : keyResult);
     }
 
-    @Override
-    public int hashCode() {
-        return joinKey.hashCode();
+    public static class ReduceSideJoinPartitioner<V> extends Partitioner<ReduceSideJoinKey, V> {
+        @Override
+        public int getPartition(ReduceSideJoinKey key, V value, int numReduceTasks) {
+            return (key.joinKey.hashCode() & Integer.MAX_VALUE) % numReduceTasks;
+        }
     }
 
     public static class GroupingComparator extends WritableComparator {
