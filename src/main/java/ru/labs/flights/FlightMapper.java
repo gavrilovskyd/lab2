@@ -18,16 +18,16 @@ public class FlightMapper extends Mapper<LongWritable, Text, ReduceSideJoinKey, 
             "ARR_DELAY_NEW","CANCELLED","CANCELLATION_CODE","AIR_TIME","DISTANCE"
     };
 
-    private String CANCELED_FIELD = "CANCELLED";
-    private String DELAY_FIELD = "ARR_DELAY_NEW";
-    private String DEST_AIRPORT_ID_FIELD = "DEST_AIRPORT_ID";
+    private static final String CANCELED_FIELD = "CANCELLED";
+    private static final String DELAY_FIELD = "ARR_DELAY_NEW";
+    private static final String DEST_AIRPORT_ID_FIELD = "DEST_AIRPORT_ID";
 
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         CSVParser parser = CSVParser.parse(value.toString(), CSVFormat.RFC4180.withHeader(flightHeader));
         CSVRecord record = parser.getRecords().get(0);
 
-        if (Float.parseFloat(record.get(CANCELED_FIELD)) < EPS                     // Not canceled (not 0.00)
+        if (Float.parseFloat(record.get(CANCELED_FIELD)) < EPS              // Not canceled (not 0.00)
                 && !record.get(DELAY_FIELD).isEmpty()                       // Has delay data
                 && Float.parseFloat(record.get(DELAY_FIELD)) > EPS) {       // Delay is not 0.00
             context.write(new ReduceSideJoinKey(new Text(record.get(DEST_AIRPORT_ID_FIELD)), false),
